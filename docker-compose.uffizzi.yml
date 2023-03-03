@@ -6,10 +6,12 @@ x-uffizzi:
 services:
   app:
     build: .
+    environment:
+      NODE_ENV: staging
     deploy:
       resources:
         limits:
-          memory: 1000M
+          memory: 4000M
     restart: always
     ports:
       - "80:80"
@@ -18,5 +20,6 @@ services:
       - app
     cap_add:
       - SYS_ADMIN
+    restart: always
 volumes:
   data:
